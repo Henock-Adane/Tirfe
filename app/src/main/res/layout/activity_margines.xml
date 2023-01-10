@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/marginIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/margineIntroTv"
+        android:textAlignment="center"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operatorMargine"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@+id/marginIntro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/operator1"
+        android:textAllCaps="false"
+        android:textColor="@color/white">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <RelativeLayout
+        android:id="@+id/rl0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/operatorMargine"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl0"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText1"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText2"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl2"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText3"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl3"
+      android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText4"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl4"
+       android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText5"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl5"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/cardEditText6"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl6"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/cardEditText7"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_cut"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:textAlignment="center">
+
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/rl7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/defaultButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/defaultButton"
+            android:textAllCaps="false"
+            android:textColor="@color/white">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignBottom="@+id/defaultButton"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/defaultButton"
+            android:background="@drawable/custom_button"
+            android:text="@string/set"
+            android:textAllCaps="false"
+            android:textColor="@color/white">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

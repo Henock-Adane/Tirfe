@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ትርፌ</string>
+    <string name="five">ባለ 5 ያስገቡ</string>
+    <string name="ten">ባለ 10 ያስገቡ</string>
+    <string name="fifteen">ባለ 15 ያስገቡ</string>
+    <string name="twenty">ባለ 20 ያስገቡ</string>
+    <string name="twenty_five">ባለ 25 ያስገቡ</string>
+    <string name="fifty">ባለ 50 ያስገቡ</string>
+    <string name="hundred">ባለ 100 ያስገቡ</string>
+    <string name="two_hundred">ባለ 200 ያስገቡ</string>
+    <string name="calc">አስላ</string>
+    <string name="operator1">ኢትዮ ቴሌ</string>
+    <string name="operator2">ሳፋሪኮም</string>
+    <string name="okay_txt">አስገባ</string>
+    <string name="cancel_txt">ሰርዝ</string>
+    <string name="again">ድጋሜ አስገባ</string>
+    <string name="pay">ክፍያ:</string>
+    <string name="Birr">ብር</string>
+    <string name="profit">የሚገኘው ትርፍ:</string>
+    <string name="margine">ከትርፍ በፊት ዋጋዎች</string>
+    <string name="lang">ቋንቋ</string>
+    <string name="margineIntroTv">ዋጋዎችን ለማየት እና ለማስተካከል ኦፕሬተር ይምረጡ</string>
+    <string name="naVal">የለም</string>
+    <string name="defaultButton">ነባር ዋጋ</string>
+    <string name="cardNum5">የባለ 5 ዋጋ</string>
+    <string name="cardNum10">የባለ 10 ዋጋ</string>
+    <string name="cardNum15">የባለ 15 ዋጋ</string>
+    <string name="cardNum20">የባለ 20 ዋጋ</string>
+    <string name="cardNum25">የባለ 25 ዋጋ</string>
+    <string name="cardNum50">የባለ 50 ዋጋ</string>
+    <string name="cardNum100">የባለ 100 ዋጋ</string>
+    <string name="cardNum200">የባለ 200 ዋጋ</string>
+
+    <string name="fiveTele">4.65</string>
+    <string name="tenTele">9.30</string>
+    <string name="fifteenTele">13.95</string>
+    <string name="twentyfiveTele">23.25</string>
+    <string name="fiftyTele">46.50</string>
+    <string name="hundredTele">93</string>
+
+    <string name="fiveSafari">4.65</string>
+    <string name="tenSafari">9.30</string>
+    <string name="fifteenSafari">13.95</string>
+    <string name="twentyfiveSafari">23.25</string>
+    <string name="fiftySafari">46.50</string>
+    <string name="hundredSafari">93</string>
+    <string name="twohundredSafari">186</string>
+    <string name="set">ዋጋዎችን አስገባ</string>
+    <string name="setoperator">ተመርጧል</string>
+    <string name="defaultset">ነባሪ ዋጋ ተመርጧል</string>
+    <string name="values">ዋጋዎች ተጣርተዋል</string>
+    <string name="fillall">ያልተቀየሩ ዋጋዎች አሉ!</string>
+    <string name="setamount">ብዛት ይምረጡ</string>
+    <string name="alert200">የ ባለ 200 ካርድ ዋጋ 0 ነው ፤ ከትርፍ በፊት ዋጋዎች ላይ ያስተካክሉ፡፡</string>
+    <string name="alert20">የ ባለ 20 ካርድ ዋጋ 0 ነው ፤ ከትርፍ በፊት ዋጋዎች ላይ ያስተካክሉ፡፡</string>
+
+</resources>

@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Tirfe</string>
+    <string name="comp" translatable="false">AggaZ Studio</string>
+    <string name="five">Enter 5\'s </string>
+    <string name="ten">Enter 10\'s </string>
+    <string name="fifteen">Enter 15\'s </string>
+    <string name="twenty">Enter 20\'s</string>
+    <string name="twenty_five">Enter 25\'s </string>
+    <string name="fifty">Enter 50\'s </string>
+    <string name="hundred">Enter 100\'s </string>
+    <string name="two_hundred">Enter 200\'s </string>
+    <string name="calc">Calculate</string>
+    <string name="operator1">ethio tel</string>
+    <string name="operator2">Safaricom</string>
+    <string name="okay_txt">Okay</string>
+    <string name="cancel_txt">Cancel</string>
+    <string name="again">again</string>
+    <string name="pay">Pay:</string>
+    <string name="Birr">Birr</string>
+    <string name="profit">Your profit is:</string>
+    <string name="margine">Operators Price</string>
+    <string name="lang">Change language</string>
+    <string name="margineIntroTv">Select Operator to view and update values</string>
+    <string name="naVal">N/A</string>
+    <string name="defaultButton">Load Default</string>
+    <string name="cardNum5">5\'s price</string>
+    <string name="cardNum10">10\'s price</string>
+    <string name="cardNum15">15\'s price</string>
+    <string name="cardNum20">20\'s price</string>
+    <string name="cardNum25">25\'s price</string>
+    <string name="cardNum50">50\'s price</string>
+    <string name="cardNum100">100\'s price</string>
+    <string name="cardNum200">200\'s price</string>
+
+    <string name="fiveTele">4.65</string>
+    <string name="tenTele">9.30</string>
+    <string name="fifteenTele">13.95</string>
+    <string name="twentyfiveTele">23.25</string>
+    <string name="fiftyTele">46.50</string>
+    <string name="hundredTele">93</string>
+
+    <string name="fiveSafari">4.65</string>
+    <string name="tenSafari">9.30</string>
+    <string name="fifteenSafari">13.95</string>
+    <string name="twentyfiveSafari">23.25</string>
+    <string name="fiftySafari">46.50</string>
+    <string name="hundredSafari">93</string>
+    <string name="twohundredSafari">186</string>
+    <string name="set">Set Margins</string>
+    <string name="setoperator">chosen</string>
+    <string name="defaultset">Default is set</string>
+    <string name="values">Values are refreshed</string>
+    <string name="fillall">Some values unchanged!</string>
+    <string name="setamount">Pick Amount</string>
+    <string name="alert200">200\'s value is 0 reset it on Operators Price</string>
+    <string name="alert20">20\'s value is 0 reset it on Operators Price</string>
+
+
+</resources>
