@@ -34,12 +34,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +50,13 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 /**
  * Main class
@@ -82,6 +92,11 @@ public class MainActivity extends AppCompatActivity{
 
     //TextViews on the dialog
     TextView resulttv, profittv;
+
+
+    //FrameLayout and adview for AdMob
+    private FrameLayout adContainerView;
+    private AdView adView;
 
 
     //The recycler view containing all the cards
@@ -133,6 +148,29 @@ public class MainActivity extends AppCompatActivity{
         //buttons on the activity
         operatorButton = findViewById(R.id.operator);
         calc = findViewById(R.id.calc_button);
+
+
+        //get the reference to your FrameLayout
+        adContainerView = findViewById(R.id.adView_container);
+
+
+        //initialize AdMob SDK
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+
+
+        //Create an AdView and put it into your FrameLayout
+        adView = new AdView(this);
+        adContainerView.addView(adView);
+        adView.setAdUnitId("ca-app-pub-3940256099942544/6300978111");
+
+
+        //start requesting banner ads
+        loadBanner();
 
 
         //dialog for showing the result on pressing the calculate button
@@ -413,5 +451,38 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    /**
+     * A method for sizing ads with orientation
+     */
+    private AdSize getAdSize() {
+        //Determine the screen width to use for the ad width
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
 
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+
+        //selected width in dp
+        int adWidth = (int) (widthPixels / density);
+
+        //return the optimal size on portrait orientation
+        return AdSize.getPortraitAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
+    /**
+     * A method to request banner Ad by calling LoadAds() method of
+     * the AdView library
+     */
+    private void loadBanner() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        AdSize adSize = getAdSize();
+        //Set the adaptive ad size to the ad view
+        adView.setAdSize(adSize);
+
+        //Start loading the ad in the background
+        adView.loadAd(adRequest);
+    }
 }
