@@ -9,6 +9,9 @@
     <string name="fifty">Enter 50\'s </string>
     <string name="hundred">Enter 100\'s </string>
     <string name="two_hundred">Enter 200\'s </string>
+    <string name="two_hundred_fifty">Enter 250\'s</string>
+    <string name="five_hundred">Enter 500\'s</string>
+    <string name="one_thousand">Enter 1000\'s</string>
     <string name="calc">Calculate</string>
     <string name="operator1">ethio tel</string>
     <string name="operator2">Safaricom</string>
@@ -31,6 +34,9 @@
     <string name="cardNum50">50\'s price</string>
     <string name="cardNum100">100\'s price</string>
     <string name="cardNum200">200\'s price</string>
+    <string name="cardNum250">250\'s price</string>
+    <string name="cardNum500">500\'s price</string>
+    <string name="cardNum1000">1000\'s price</string>
 
     <string name="fiveTele">4.65</string>
     <string name="tenTele">9.30</string>
@@ -52,8 +58,15 @@
     <string name="values">Values are refreshed</string>
     <string name="fillall">Some values unchanged!</string>
     <string name="setamount">Pick Amount</string>
-    <string name="alert200">200\'s value is 0 reset it on Operators Price</string>
-    <string name="alert20">20\'s value is 0 reset it on Operators Price</string>
+    <string name="alert200">Ethio tele\'s 200 value is 0, reset it on Operators Price</string>
+    <string name="alert20">Ethio tele\'s 20 value is 0, reset it on Operators Price</string>
+    <string name="alert5">Safaricom\'s 5 value is 0, reset it on Operators Price</string>
+    <string name="alert250">Ethio tele\'s 250 value is 0, reset it on Operators Price</string>
+    <string name="alert500">Ethio tele\'s 500 value is 0, reset it on Operators Price</string>
+    <string name="alert1000">Ethio tele\'s 1000 value is 0, reset it on Operators Price</string>
+
+
+
 
 
 </resources>

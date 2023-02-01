@@ -55,7 +55,7 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
     Button operator, defaultButton, setbutton;
 
     //all the edittexts to be filled with price values
-    EditText Et5, Et10, Et15, Et20, Et25, Et50, Et100, Et200;
+    EditText Et5, Et10, Et15, Et20, Et25, Et50, Et100, Et200, Et250, Et500, Et1000;
 
 
     /**
@@ -85,6 +85,9 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
         Et50 = findViewById(R.id.cardEditText5);
         Et100 = findViewById(R.id.cardEditText6);
         Et200 = findViewById(R.id.cardEditText7);
+        Et250 = findViewById(R.id.cardEditText8);
+        Et500 = findViewById(R.id.cardEditText9);
+        Et1000 = findViewById(R.id.cardEditText10);
 
 
         //linking buttons from resource
@@ -121,6 +124,12 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
         Et200.setHint(String.valueOf(df.format(MarginesUtils.getTeleTwohundred()) + " : "
                 + (getResources()
                 .getString(R.string.cardNum200))));
+        Et250.setHint(String.valueOf(df.format(MarginesUtils.getTeleTwohundredfifty()) + " : "
+                + (getResources().getString(R.string.cardNum250))));
+        Et500.setHint(String.valueOf(df.format(MarginesUtils.getTeleFivehundred()) + " : "
+                + (getResources().getString(R.string.cardNum500))));
+        Et1000.setHint(String.valueOf(df.format(MarginesUtils.getTeleOnethousand()) + " : "
+                + (getResources().getString(R.string.cardNum1000))));
 
     }
 
@@ -132,7 +141,7 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view) {
         //ArrayList of edittexts to easily access and traverse each edittexts
         List<EditText> Ets = new ArrayList<EditText>(Arrays.asList(Et5, Et10, Et15, Et20, Et25, Et50,
-                Et100, Et200));
+                Et100, Et200, Et250, Et500, Et1000));
 
 
         //Intent object to go back to the mainactivity once values are set
@@ -169,6 +178,15 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
                     Et200.setHint(String.valueOf(df.format(MarginesUtils.getSafariTwohundred())) + " : "
                             + (getResources()
                             .getString(R.string.cardNum200)));
+                    Et200.setHint(String.valueOf(df.format(MarginesUtils.getSafariTwohundred())) + " : "
+                            + (getResources()
+                            .getString(R.string.cardNum200)));
+                    Et250.setHint(String.valueOf(df.format(MarginesUtils.getSafariTwohundredfifty()))
+                            + " : " + (getResources().getString(R.string.cardNum250)));
+                    Et500.setHint(String.valueOf(df.format(MarginesUtils.getSafariFivehundred()))
+                            + " : " + (getResources().getString(R.string.cardNum500)));
+                    Et1000.setHint(String.valueOf(df.format(MarginesUtils.getSafariOnethousand()))
+                            + " : " + (getResources().getString(R.string.cardNum1000)));
 
                 }
                 else if (operator.getText() == getResources().getString(R.string.operator2)){
@@ -196,8 +214,13 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
                             + (getResources()
                             .getString(R.string.cardNum100))));
                     Et200.setHint(String.valueOf(df.format(MarginesUtils.getTeleTwohundred()) + " : "
-                            + (getResources()
-                            .getString(R.string.cardNum200))));
+                            + (getResources().getString(R.string.cardNum200))));
+                    Et250.setHint(String.valueOf(df.format(MarginesUtils.getTeleTwohundredfifty())
+                            + " : " + (getResources().getString(R.string.cardNum250))));
+                    Et500.setHint(String.valueOf(df.format(MarginesUtils.getTeleFivehundred()) + " : "
+                            + (getResources().getString(R.string.cardNum500))));
+                    Et1000.setHint(String.valueOf(df.format(MarginesUtils.getTeleOnethousand()) + " : "
+                            + (getResources().getString(R.string.cardNum1000))));
 
 
                 }
@@ -224,6 +247,13 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
                             .getString(R.string.cardNum100)));
                     Et200.setHint(String.valueOf(MarginesUtils.getTeleTwohundred()) + " " + (getResources()
                             .getString(R.string.cardNum200)));
+                    Et250.setHint(String.valueOf(MarginesUtils.getTeleTwohundredfifty()) + " " +
+                            (getResources().getString(R.string.cardNum250)));
+                    Et500.setHint(String.valueOf(MarginesUtils.getTeleFivehundred()) + " "
+                            + (getResources().getString(R.string.cardNum500)));
+                    Et1000.setHint(String.valueOf(MarginesUtils.getTeleOnethousand()) + " "
+                            + (getResources().getString(R.string.cardNum1000)));
+
 
                 }
                 else{
@@ -237,6 +267,12 @@ public class margines extends AppCompatActivity implements View.OnClickListener 
                     Et50.setHint(String.valueOf(MarginesUtils.getSafariFifty()));
                     Et100.setHint(String.valueOf(MarginesUtils.getSafariHundred()));
                     Et200.setHint(String.valueOf(MarginesUtils.getSafariTwohundred()));
+                    Et250.setHint(String.valueOf(MarginesUtils.getSafariTwohundredfifty()) + " " +
+                            (getResources().getString(R.string.cardNum250)));
+                    Et500.setHint(String.valueOf(MarginesUtils.getSafariFivehundred()) + " "
+                            + (getResources().getString(R.string.cardNum500)));
+                    Et1000.setHint(String.valueOf(MarginesUtils.getSafariOnethousand()) + " "
+                            + (getResources().getString(R.string.cardNum1000)));
                 }
                 //resetting the each card util values used to get the sums on MinActivity
                 MarginesUtils.resetValues();

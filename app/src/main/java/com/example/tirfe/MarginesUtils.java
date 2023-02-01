@@ -3,17 +3,25 @@ package com.example.tirfe;
 import static com.example.tirfe.RecyclerAdapter.fifteen;
 import static com.example.tirfe.RecyclerAdapter.fifty;
 import static com.example.tirfe.RecyclerAdapter.five;
+import static com.example.tirfe.RecyclerAdapter.five_hundred;
 import static com.example.tirfe.RecyclerAdapter.hundred;
+import static com.example.tirfe.RecyclerAdapter.one_thousand;
 import static com.example.tirfe.RecyclerAdapter.ten;
 import static com.example.tirfe.RecyclerAdapter.trueFifteen;
 import static com.example.tirfe.RecyclerAdapter.trueFifty;
 import static com.example.tirfe.RecyclerAdapter.trueFive;
+import static com.example.tirfe.RecyclerAdapter.trueFive_hundred;
 import static com.example.tirfe.RecyclerAdapter.trueHundred;
+import static com.example.tirfe.RecyclerAdapter.trueOne_thousand;
 import static com.example.tirfe.RecyclerAdapter.trueTen;
+import static com.example.tirfe.RecyclerAdapter.trueTwenty;
 import static com.example.tirfe.RecyclerAdapter.trueTwenty_five;
 import static com.example.tirfe.RecyclerAdapter.trueTwo_hundred;
+import static com.example.tirfe.RecyclerAdapter.trueTwo_hundred_fifty;
+import static com.example.tirfe.RecyclerAdapter.twenty;
 import static com.example.tirfe.RecyclerAdapter.twenty_five;
 import static com.example.tirfe.RecyclerAdapter.two_hundred;
+import static com.example.tirfe.RecyclerAdapter.two_hundred_fifty;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -38,19 +46,25 @@ public class MarginesUtils {
     private static double teleFifty = 46.50;
     private static double teleHundred = 93;
     private static double teleTwohundred = 0;
+    private static double teleTwohundredfifty = 0;
+    private static double teleFivehundred = 0;
+    private static double teleOnethousand = 0;
 
 
     /**
      * Safaricom card price variables
      */
-    private static double safariFive = 4.65;
-    private static double safariTen = 9.30;
-    private static double safariFifteen = 13.95;
-    private static double safariTwenty = 20;
-    private static double safariTwentyfive = 23.25;
-    private static double safariFifty = 46.50;
-    private static double safariHundred = 93;
-    private static double safariTwohundred = 186;
+    private static double safariFive = 0;
+    private static double safariTen = 9.4;
+    private static double safariFifteen = 14.25;
+    private static double safariTwenty = 18.8;
+    private static double safariTwentyfive = 23;
+    private static double safariFifty = 46;
+    private static double safariHundred = 94;
+    private static double safariTwohundred = 188;
+    private static double safariTwohundredfifty = 235;
+    private static double safariFivehundred = 470;
+    private static double safariOnethousand = 940;
 
 
     //a double representing sum of the selected card
@@ -178,6 +192,36 @@ public class MarginesUtils {
                 }
                 trueVal = cardAmount * 200;
                 break;
+            case 250:
+                if(operator.equals("safari"))
+                {
+                    finalAmount = cardAmount * safariTwohundredfifty;
+                }
+                else{
+                    finalAmount = cardAmount * teleTwohundredfifty;
+                }
+                trueVal = cardAmount * 250;
+                break;
+            case 500:
+                if(operator.equals("safari"))
+                {
+                    finalAmount = cardAmount * safariFivehundred;
+                }
+                else{
+                    finalAmount = cardAmount * teleFivehundred;
+                }
+                trueVal = cardAmount * 500;
+                break;
+            case 1000:
+                if(operator.equals("safari"))
+                {
+                    finalAmount = cardAmount * safariOnethousand;
+                }
+                else{
+                    finalAmount = cardAmount * teleOnethousand;
+                }
+                trueVal = cardAmount * 1000;
+                break;
 
 
         }
@@ -195,12 +239,17 @@ public class MarginesUtils {
      * @param fifty: card 50 total
      * @param hundred: card 100 total
      * @param two_hundred: card 200 total
+     * @param two_hundred_fifty: card 250 total
+     * @param five_hundred: card 500 total
+     * @param one_thousand: card 1000 total
      * @return sumOfAll: sum of all the cards
      */
     public static double sumMyCard( double five, double ten, double fifteen, double twenty,
                                     double twentyfive, double fifty, double hundred,
-                                    double two_hundred){
-        sumOfAll = five + ten + fifteen + twenty + twentyfive + fifty + hundred + two_hundred;
+                                    double two_hundred, double two_hundred_fifty,
+                                    double five_hundred, double one_thousand){
+        sumOfAll = five + ten + fifteen + twenty + twentyfive + fifty + hundred + two_hundred
+        + two_hundred_fifty + five_hundred + one_thousand;
         return sumOfAll;
     }
 
@@ -219,16 +268,22 @@ public class MarginesUtils {
             teleFifty = 46.50;
             teleHundred = 93;
             teleTwohundred = 0;
+            teleTwohundredfifty = 0;
+            teleFivehundred = 0;
+            teleOnethousand = 0;
         }
         else if (operatorPassed.equals("safari")){
-            safariFive = 4.65;
-            safariTen = 9.30;
-            safariFifteen = 13.95;
-            safariTwenty = 20;
-            safariTwentyfive = 23.25;
-            safariFifty = 46.50;
-            safariHundred = 93;
-            safariTwohundred = 186;
+            safariFive =0;
+            safariTen = 9.4;
+            safariFifteen = 14.25;
+            safariTwenty = 18.8;
+            safariTwentyfive = 23;
+            safariFifty = 46;
+            safariHundred = 94;
+            safariTwohundred = 188;
+            safariTwohundredfifty = 235;
+            safariFivehundred = 470;
+            safariOnethousand = 940;
         }
     }
 
@@ -242,11 +297,14 @@ public class MarginesUtils {
         five = trueFive = 0;
         ten = trueTen = 0;
         fifteen = trueFifteen  = 0;
-
+        twenty = trueTwenty = 0;
         twenty_five = trueTwenty_five = 0;
         fifty = trueFifty = 0;
         hundred = trueHundred = 0;
         two_hundred = trueTwo_hundred = 0;
+        two_hundred_fifty = trueTwo_hundred_fifty = 0;
+        five_hundred = trueFive_hundred = 0;
+        one_thousand = trueOne_thousand = 0;
     }
 
 
@@ -307,12 +365,30 @@ public class MarginesUtils {
                 else
                     MarginesUtils.setSafariTwohundred(newVal);
                 break;
+            case 8 :
+                if(operator.equals("ethio tel"))
+                    MarginesUtils.setTeleTwohundredfifty(newVal);
+                else
+                    MarginesUtils.setSafariTwohundredfifty(newVal);
+                break;
+            case 9 :
+                if(operator.equals("ethio tel"))
+                    MarginesUtils.setTeleFivehundred(newVal);
+                else
+                    MarginesUtils.setSafariFivehundred(newVal);
+                break;
+            case 10 :
+                if(operator.equals("ethio tel"))
+                    MarginesUtils.setTeleOnethousand(newVal);
+                else
+                    MarginesUtils.setSafariOnethousand(newVal);
+                break;
         }
     }
 
 
     /**
-     * safari getters ans setters
+     * safari getters and setters
      *
      */
     public static double getSafariFive() {
@@ -377,6 +453,29 @@ public class MarginesUtils {
 
     public static void setSafariTwohundred(double safariTwohundred) {
         MarginesUtils.safariTwohundred = safariTwohundred;
+    }
+    public static double getSafariTwohundredfifty() {
+        return safariTwohundredfifty;
+    }
+
+    public static void setSafariTwohundredfifty(double safariTwohundredfifty) {
+        MarginesUtils.safariTwohundredfifty = safariTwohundredfifty;
+    }
+
+    public static double getSafariFivehundred() {
+        return safariFivehundred;
+    }
+
+    public static void setSafariFivehundred(double safariFivehundred) {
+        MarginesUtils.safariFivehundred = safariFivehundred;
+    }
+
+    public static double getSafariOnethousand() {
+        return safariOnethousand;
+    }
+
+    public static void setSafariOnethousand(double safariOnethousand) {
+        MarginesUtils.safariOnethousand = safariOnethousand;
     }
 
 
@@ -445,6 +544,29 @@ public class MarginesUtils {
 
     public static void setTeleTwohundred(double teleTwohundred) {
         MarginesUtils.teleTwohundred = teleTwohundred;
+    }
+    public static double getTeleTwohundredfifty() {
+        return teleTwohundredfifty;
+    }
+
+    public static void setTeleTwohundredfifty(double teleTwohundredfifty) {
+        MarginesUtils.teleTwohundredfifty = teleTwohundredfifty;
+    }
+
+    public static double getTeleFivehundred() {
+        return teleFivehundred;
+    }
+
+    public static void setTeleFivehundred(double teleFivehundred) {
+        MarginesUtils.teleFivehundred = teleFivehundred;
+    }
+
+    public static double getTeleOnethousand() {
+        return teleOnethousand;
+    }
+
+    public static void setTeleOnethousand(double teleOnethousand) {
+        MarginesUtils.teleOnethousand = teleOnethousand;
     }
 
 

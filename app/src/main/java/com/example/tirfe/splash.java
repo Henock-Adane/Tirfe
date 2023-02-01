@@ -31,7 +31,7 @@ public class splash extends AppCompatActivity {
         actionBar.hide();
 
 
-        //using handler to proceed to the main activity with 2 and half sec delay
+        //using handler to proceed to the main activity with 2 sec delay
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -40,7 +40,7 @@ public class splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2500);
+        }, 2000);
 
     }
 }

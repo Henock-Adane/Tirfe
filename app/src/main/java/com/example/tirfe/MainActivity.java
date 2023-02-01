@@ -3,22 +3,28 @@ package com.example.tirfe;
 import static com.example.tirfe.RecyclerAdapter.fifteen;
 import static com.example.tirfe.RecyclerAdapter.fifty;
 import static com.example.tirfe.RecyclerAdapter.five;
+import static com.example.tirfe.RecyclerAdapter.five_hundred;
 import static com.example.tirfe.RecyclerAdapter.hundred;
 
 
+import static com.example.tirfe.RecyclerAdapter.one_thousand;
 import static com.example.tirfe.RecyclerAdapter.ten;
 import static com.example.tirfe.RecyclerAdapter.trueFifteen;
 import static com.example.tirfe.RecyclerAdapter.trueFifty;
 import static com.example.tirfe.RecyclerAdapter.trueFive;
+import static com.example.tirfe.RecyclerAdapter.trueFive_hundred;
 import static com.example.tirfe.RecyclerAdapter.trueHundred;
 
+import static com.example.tirfe.RecyclerAdapter.trueOne_thousand;
 import static com.example.tirfe.RecyclerAdapter.trueTen;
 import static com.example.tirfe.RecyclerAdapter.trueTwenty;
 import static com.example.tirfe.RecyclerAdapter.trueTwenty_five;
 import static com.example.tirfe.RecyclerAdapter.trueTwo_hundred;
+import static com.example.tirfe.RecyclerAdapter.trueTwo_hundred_fifty;
 import static com.example.tirfe.RecyclerAdapter.twenty;
 import static com.example.tirfe.RecyclerAdapter.twenty_five;
 import static com.example.tirfe.RecyclerAdapter.two_hundred;
+import static com.example.tirfe.RecyclerAdapter.two_hundred_fifty;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -63,8 +69,10 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
  */
 public class MainActivity extends AppCompatActivity{
     //Float variables for saving card margine values in the shared preference
-    private float tele5, tele10, tele15, tele20, tele25, tele50, tele100, tele200;
-    private float safari5, safari10, safari15, safari20, safari25, safari50, safari100, safari200;
+    private float tele5, tele10, tele15, tele20, tele25, tele50, tele100, tele200, tele250,
+    tele500, tele1000;
+    private float safari5, safari10, safari15, safari20, safari25, safari50, safari100, safari200,
+    safari250, safari500, safari1000;
 
 
     //Total sum variable of the actual price(sum) and resell price(trueSum)
@@ -150,6 +158,10 @@ public class MainActivity extends AppCompatActivity{
         calc = findViewById(R.id.calc_button);
 
 
+        //Method call for displaying the recycler view and its card components
+        displayItems();
+
+
         //get the reference to your FrameLayout
         adContainerView = findViewById(R.id.adView_container);
 
@@ -187,8 +199,7 @@ public class MainActivity extends AppCompatActivity{
         profittv = dialog.findViewById(R.id.profitText);
 
 
-        //Method call for displaying the recycler view and its card components
-        displayItems();
+
 
 
         /**
@@ -199,8 +210,8 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
+
                 if (MarginesUtils.operator.equals("ethio tel")) {
-                    operatorButton.setText(getResources().getString(R.string.operator2));
                     MarginesUtils.switchOperator("safari");
 
 
@@ -208,19 +219,20 @@ public class MainActivity extends AppCompatActivity{
                     cardDataList.clear();
                     displayItems();
                     adapter.notifyDataSetChanged();
+                    operatorButton.setText(getString(R.string.operator2));
                     MarginesUtils.resetValues();
                     sum = trueSum = 0;
 
                 }
 
                 else if (MarginesUtils.operator.equals("safari")){
-                    operatorButton.setText(getResources().getString(R.string.operator1));
                     MarginesUtils.switchOperator("ethio tel");
 
 
                     //resetting the view and sum values
                     cardDataList.clear();
                     displayItems();
+                    operatorButton.setText(getString(R.string.operator1));
                     MarginesUtils.resetValues();
                     sum = trueSum = 0;
                 }
@@ -236,6 +248,10 @@ public class MainActivity extends AppCompatActivity{
         calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //loading locale
+                loadLocale();
+
+
                 //checking sum for settled card values, if new button is not pressed show previous
                 //result
                 if(MarginesUtils.itemPressed){
@@ -267,19 +283,25 @@ public class MainActivity extends AppCompatActivity{
      * A method for filling recycleview with common card values
      */
     private void displayItems() {
+        loadLocale();
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
         cardDataList = new ArrayList<>();
-        cardDataList.add(new cardData(getResources().getString(R.string.five)));
-        cardDataList.add(new cardData(getResources().getString(R.string.ten)));
-        cardDataList.add(new cardData(getResources().getString(R.string.fifteen)));
-        cardDataList.add(new cardData(getResources().getString(R.string.twenty)));
-        cardDataList.add(new cardData(getResources().getString(R.string.twenty_five)));
-        cardDataList.add(new cardData(getResources().getString(R.string.fifty)));
-        cardDataList.add(new cardData(getResources().getString(R.string.hundred)));
-        cardDataList.add(new cardData(getResources().getString(R.string.two_hundred)));
+        cardDataList.add(new cardData(getString(R.string.five)));
+        cardDataList.add(new cardData(getString(R.string.ten)));
+        cardDataList.add(new cardData(getString(R.string.fifteen)));
+        cardDataList.add(new cardData(getString(R.string.twenty)));
+        cardDataList.add(new cardData(getString(R.string.twenty_five)));
+        cardDataList.add(new cardData(getString(R.string.fifty)));
+        cardDataList.add(new cardData(getString(R.string.hundred)));
+        cardDataList.add(new cardData(getString(R.string.two_hundred)));
+        cardDataList.add(new cardData(getString(R.string.two_hundred_fifty)));
+        cardDataList.add(new cardData(getString(R.string.five_hundred)));
+        cardDataList.add(new cardData(getString(R.string.one_thousand)));
+
+
         adapter = new RecyclerAdapter(this,cardDataList);
         recyclerView.setAdapter(adapter);
 
@@ -370,6 +392,12 @@ public class MainActivity extends AppCompatActivity{
         editor.putFloat("tele50m", (float)MarginesUtils.getTeleFifty());
         editor.putFloat("tele100m", (float)MarginesUtils.getTeleHundred());
         editor.putFloat("tele200m", (float)MarginesUtils.getTeleTwohundred());
+        editor.putFloat("tele250m", (float)MarginesUtils.getTeleTwohundredfifty());
+        editor.putFloat("tele500m", (float)MarginesUtils.getTeleFivehundred());
+        editor.putFloat("tele1000m", (float)MarginesUtils.getTeleOnethousand());
+
+
+
 
         editor.putFloat("safari5m", (float)MarginesUtils.getSafariFive());
         editor.putFloat("safari10m", (float)MarginesUtils.getSafariTen());
@@ -379,6 +407,9 @@ public class MainActivity extends AppCompatActivity{
         editor.putFloat("safari50m", (float)MarginesUtils.getSafariFifty());
         editor.putFloat("safari100m", (float)MarginesUtils.getSafariHundred());
         editor.putFloat("safari200m", (float)MarginesUtils.getSafariTwohundred());
+        editor.putFloat("safari250m", (float)MarginesUtils.getSafariTwohundredfifty());
+        editor.putFloat("safari500m", (float)MarginesUtils.getSafariFivehundred());
+        editor.putFloat("safari1000m", (float)MarginesUtils.getSafariOnethousand());
 
         editor.apply();
     }
@@ -398,6 +429,9 @@ public class MainActivity extends AppCompatActivity{
         tele50 = prefs.getFloat("tele50m", (float)MarginesUtils.getTeleFifty());
         tele100 = prefs.getFloat("tele100m", (float)MarginesUtils.getTeleHundred());
         tele200 = prefs.getFloat("tele200m", (float)MarginesUtils.getTeleTwohundred());
+        tele250 = prefs.getFloat("tele250m", (float)MarginesUtils.getTeleTwohundredfifty());
+        tele500 = prefs.getFloat("tele500m", (float)MarginesUtils.getTeleFivehundred());
+        tele1000 = prefs.getFloat("tele1000m", (float)MarginesUtils.getTeleOnethousand());
 
         safari5 = prefs.getFloat("safari5m", (float)MarginesUtils.getSafariFive());
         safari10 = prefs.getFloat("safari10m", (float)MarginesUtils.getSafariTen());
@@ -407,7 +441,9 @@ public class MainActivity extends AppCompatActivity{
         safari50 = prefs.getFloat("safari50m", (float)MarginesUtils.getSafariFifty());
         safari100 = prefs.getFloat("safari100m", (float)MarginesUtils.getSafariHundred());
         safari200 = prefs.getFloat("safari200m", (float)MarginesUtils.getSafariTwohundred());
-
+        safari250 = prefs.getFloat("safari250m", (float)MarginesUtils.getSafariTwohundredfifty());
+        safari500 = prefs.getFloat("safari500m", (float)MarginesUtils.getSafariFivehundred());
+        safari1000 = prefs.getFloat("safari1000m", (float)MarginesUtils.getSafariOnethousand());
         //method call to put the retrieved language and float values
         // for next time use unless they are changed
         setLocale(language);
@@ -427,6 +463,10 @@ public class MainActivity extends AppCompatActivity{
         MarginesUtils.setTeleFifty(tele50);
         MarginesUtils.setTeleHundred(tele100);
         MarginesUtils.setTeleTwohundred(tele200);
+        MarginesUtils.setTeleTwohundredfifty(tele250);
+        MarginesUtils.setTeleFivehundred(tele500);
+        MarginesUtils.setTeleOnethousand(tele1000);
+
 
         MarginesUtils.setSafariFive(safari5);
         MarginesUtils.setSafariTen(safari10);
@@ -436,6 +476,9 @@ public class MainActivity extends AppCompatActivity{
         MarginesUtils.setSafariFifty(safari50);
         MarginesUtils.setSafariHundred(safari100);
         MarginesUtils.setSafariTwohundred(safari200);
+        MarginesUtils.setSafariTwohundredfifty(safari250);
+        MarginesUtils.setSafariFivehundred(safari500);
+        MarginesUtils.setSafariOnethousand(safari1000);
     }
 
     /**
@@ -444,10 +487,11 @@ public class MainActivity extends AppCompatActivity{
     public void checkSum(){
 
             sum = MarginesUtils.sumMyCard(five,ten,fifteen,twenty,twenty_five,fifty,hundred,
-                    two_hundred);
+                    two_hundred, two_hundred_fifty, five_hundred, one_thousand);
             trueSum = MarginesUtils.sumMyCard(trueFive, trueTen, trueFifteen, trueTwenty,
                     trueTwenty_five,
-                    trueFifty,trueHundred, trueTwo_hundred);
+                    trueFifty,trueHundred, trueTwo_hundred, trueTwo_hundred_fifty, trueFive_hundred,
+                    trueOne_thousand);
 
     }
 
@@ -476,7 +520,7 @@ public class MainActivity extends AppCompatActivity{
      */
     private void loadBanner() {
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                //.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
         AdSize adSize = getAdSize();
         //Set the adaptive ad size to the ad view
@@ -484,5 +528,12 @@ public class MainActivity extends AppCompatActivity{
 
         //Start loading the ad in the background
         adView.loadAd(adRequest);
+    }
+
+    @Override
+    protected void onDestroy() {
+        MarginesUtils.resetValues();
+
+        super.onDestroy();
     }
 }

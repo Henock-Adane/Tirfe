@@ -2,6 +2,7 @@ package com.example.tirfe;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
     static double fifty, trueFifty = 0;
     static double hundred, trueHundred = 0;
     static double two_hundred, trueTwo_hundred = 0;
+    static double two_hundred_fifty, trueTwo_hundred_fifty = 0;
+    static double five_hundred, trueFive_hundred = 0;
+    static double one_thousand, trueOne_thousand = 0;
 
 
     /**
@@ -116,6 +120,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
                     String buttonNewText = pickedVal  + " " + buttonText;
                     holder.cardButton.setText(buttonNewText);
 
+
+                    //making the picked value 0 to avoid repetition on other picker clicks
+                    pickedVal = 0;
                 }
             });
 
@@ -147,9 +154,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
                 switch (holder.getAdapterPosition()){
 
                     case 0 :
-                        five = pickedVal;
-                        five = MarginesUtils.calculateSum(5, five);
-                        trueFive = MarginesUtils.trueVal;
+                        if(MarginesUtils.operator.equals("safari") &&
+                        MarginesUtils.getSafariFive() == 0){
+                            Toast.makeText(context, R.string.alert5 , Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            five = pickedVal;
+                            five = MarginesUtils.calculateSum(5, five);
+                            trueFive = MarginesUtils.trueVal;
+                        }
                         break;
 
                     case 1 :
@@ -198,12 +211,49 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
                     case 7 :
                         if(MarginesUtils.operator.equals("ethio tel") &&
                                 MarginesUtils.getTeleTwohundred() == 0){
-                            Toast.makeText(context, R.string.alert200 , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, R.string.alert200 ,
+                                    Toast.LENGTH_SHORT).show();
                         }
                         else {
                             two_hundred = pickedVal;
                             two_hundred = MarginesUtils.calculateSum(200, two_hundred);
                             trueTwo_hundred = MarginesUtils.trueVal;
+                        }
+
+                        break;
+                    case 8 :
+                        if(MarginesUtils.operator.equals("ethio tel") &&
+                                MarginesUtils.getTeleTwohundredfifty() == 0){
+                            Toast.makeText(context, R.string.alert250 , Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            two_hundred_fifty = pickedVal;
+                            two_hundred_fifty = MarginesUtils.calculateSum(250, two_hundred_fifty);
+                            trueTwo_hundred_fifty = MarginesUtils.trueVal;
+                        }
+
+                        break;
+                    case 9 :
+                        if(MarginesUtils.operator.equals("ethio tel") &&
+                                MarginesUtils.getTeleFivehundred() == 0){
+                            Toast.makeText(context, R.string.alert500 , Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            five_hundred = pickedVal;
+                            five_hundred = MarginesUtils.calculateSum(500, five_hundred);
+                            trueFive_hundred = MarginesUtils.trueVal;
+                        }
+
+                        break;
+                    case 10 :
+                        if(MarginesUtils.operator.equals("ethio tel") &&
+                                MarginesUtils.getTeleOnethousand() == 0){
+                            Toast.makeText(context, R.string.alert1000 , Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            one_thousand = pickedVal;
+                            one_thousand = MarginesUtils.calculateSum(1000, one_thousand);
+                            trueOne_thousand = MarginesUtils.trueVal;
                         }
 
                         break;
