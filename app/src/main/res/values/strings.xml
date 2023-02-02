@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Tirfe</string>
-    <string name="comp" translatable="false">AggaZ Studio</string>
+    <string name="comp" translatable="false">Agaz Studio ፳፻፲፭</string>
     <string name="five">Enter 5\'s </string>
     <string name="ten">Enter 10\'s </string>
     <string name="fifteen">Enter 15\'s </string>
@@ -12,6 +12,7 @@
     <string name="two_hundred_fifty">Enter 250\'s</string>
     <string name="five_hundred">Enter 500\'s</string>
     <string name="one_thousand">Enter 1000\'s</string>
+    <string name="reset">Reset</string>
     <string name="calc">Calculate</string>
     <string name="operator1">ethio tel</string>
     <string name="operator2">Safaricom</string>

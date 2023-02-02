@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity{
     //Buttons on the Activity
     Button operatorButton;
     Button calc;
+    Button reset;
 
 
     //TextViews on the dialog
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity{
         //buttons on the activity
         operatorButton = findViewById(R.id.operator);
         calc = findViewById(R.id.calc_button);
-
+        reset = findViewById(R.id.reset);
 
         //Method call for displaying the recycler view and its card components
         displayItems();
@@ -274,6 +275,19 @@ public class MainActivity extends AppCompatActivity{
         });
 
 
+        /**
+         * onClick for the reset button for resetting values and prepare another session
+         */
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardDataList.clear();
+                displayItems();
+                adapter.notifyDataSetChanged();
+                MarginesUtils.resetValues();
+                sum = trueSum = 0;
+            }
+        });
 
 
     }
